@@ -1,0 +1,18 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ceph-rbd
+parameters:
+  adminId: admin
+  adminSecretName: ceph-admin-secret
+  adminSecretNamespace: kube-system
+  imageFormat: "2"
+  monitors: ceph-mon-1.kube-system.svc:6789,ceph-mon-2.kube-system.svc:6789,ceph-mon-3.kube-system.svc:6789
+  pool: YOUR-POOL-NAME
+  userId: YOUR-USER-ID
+  userSecretName: ceph-k8s-secret
+  userSecretNamespace: kube-system
+provisioner: ceph.com/rbd
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true

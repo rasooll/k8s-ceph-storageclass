@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: ceph-mon-1
+subsets:
+- addresses:
+  - ip: 10.10.10.11
+  ports:
+  - name: rbd
+    port: 6789
+    protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: ceph-mon-2
+subsets:
+- addresses:
+  - ip: 10.10.10.12
+  ports:
+  - name: rbd
+    port: 6789
+    protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: ceph-mon-3
+subsets:
+- addresses:
+  - ip: 10.10.10.13
+  ports:
+  - name: rbd
+    port: 6789
+    protocol: TCP
